@@ -44,9 +44,6 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
             - args: [--global, typescript]
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Seed database
         run: pnpm seedCI
 
