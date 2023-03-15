@@ -85,3 +85,14 @@ jobs:
       - name: Run tests
         run: pnpm testCI
 
+  deploy-to-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          host: 68.183.25.209
+          username: kc
+          password: P$uHorseStaple
+          script:
+            cd /home/kc/workspace/site && git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git
+
