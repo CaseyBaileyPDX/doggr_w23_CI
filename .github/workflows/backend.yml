@@ -10,6 +10,13 @@ on:
 jobs:
   backend_testing:
     runs-on: ubuntu-latest
+    env:
+      VITE_DB_USER: doggr
+      VITE_DB_PASS: doggr
+      VITE_DB_NAME: doggr
+      VITE_IP_ADDR: 0.0.0.0
+      VITE_PORT: 8080
+      VITE_ADMINISTRATOR_PASSWORD: admin
     services:
       postgres:
         image: postgres:15
@@ -69,6 +76,8 @@ jobs:
 #            - recursive: true
 #              args: [--frozen-lockfile, --strict-peer-dependencies]
 #            - args: [--global, typescript]
+      - name: Run Migrations
+        run: pnpm migration:run
 
       - name: Seed database
         run: pnpm seedCI
