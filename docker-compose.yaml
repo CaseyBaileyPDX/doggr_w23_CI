@@ -56,7 +56,6 @@ services:
     depends_on: #This is a lie
       - postgres
 
-
   minio:
     container_name: minio
     image: docker.io/bitnami/minio:latest
