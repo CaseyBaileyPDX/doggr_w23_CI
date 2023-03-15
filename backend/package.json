@@ -9,7 +9,8 @@
     "build": "vite build --emptyOutDir -c vite.config.ts -m development",
     "startProd": "http-server -p 8080 build/",
     "lint": "eslint . --ext .ts",
-    "test": "vitest run --passWithNoTests",
+    "test": "pnpm seed && vitest run --passWithNoTests",
+
     "test:watch": "vitest --passWithNoTests",
     "typeorm": "pnpm typeorm",
     "buildJS": "pnpm tsc-esm -p tsconfig.migration.json",
@@ -21,6 +22,8 @@
     "migration:generate": "pnpm buildJS && typeorm migration:generate -d buildTypeorm/db/datasources/dev_datasource.js",
     "migration:revert": "pnpm buildJS && typeorm migration:revert -d buildTypeorm/db/datasources/dev_datasource.js",
     "seed": "pnpm typeorm:updateDatasource && vite-node src/index.ts -- -seed",
+    "seedCI": "vite-node src/index.ts -- -seed",
+    "testCI": "vitest run --passWithNoTests",
     "generateDocs": "pnpm jsdoc -r -d docs/ -c jsdoc.json src/",
     "gitSync": "pnpm typeorm:drop && pnpm migration:run && pnpm seed"
   },

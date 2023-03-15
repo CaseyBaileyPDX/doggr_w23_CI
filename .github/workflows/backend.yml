@@ -10,6 +10,20 @@ on:
 jobs:
   backend_testing:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: doggr
+          POSTGRES_PASSWORD: doggr
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
 
     defaults:
       run:
@@ -30,9 +44,12 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
             - args: [--global, typescript]
 
-      - name: Install depenencies
+      - name: Install dependencies
         run: pnpm install
 
+      - name: Seed database
+        run: pnpm seedCI
+
       - name: Run tests
-        run: pnpm test
+        run: pnpm testCI
 
