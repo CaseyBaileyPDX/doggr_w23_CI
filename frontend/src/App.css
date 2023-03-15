@@ -1,0 +1,19 @@
+
+.App {
+    text-align: center;
+}
+
+.App nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+}
+
+.App nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
