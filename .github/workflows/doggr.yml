@@ -69,13 +69,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-#      - uses: pnpm/action-setup@v2
-#        with:
-#          version: 6.0.2
-#          run_install: |
-#            - recursive: true
-#              args: [--frozen-lockfile, --strict-peer-dependencies]
-#            - args: [--global, typescript]
       - name: Run Migrations
         run: pnpm migration:run
 
@@ -94,7 +87,7 @@ jobs:
           host: 68.183.25.209
           username: kc
           key: ${{ secrets.PRIVATE_KEY }}
-          script:
+          script: # This is intentionally one hideously long line to ensure line ending differences don't screw us anywhere
             cd /home/kc/workspace/ && rm -rf ./doggr && git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git doggr && cd doggr && docker compose up -d
 
 

@@ -9,8 +9,7 @@
     "build": "vite build --emptyOutDir -c vite.config.ts -m development",
     "startProd": "http-server -p 8080 build/",
     "lint": "eslint . --ext .ts",
-    "test": "pnpm seed && vitest run --passWithNoTests",
-
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --passWithNoTests",
     "typeorm": "pnpm typeorm",
     "buildJS": "pnpm tsc-esm -p tsconfig.migration.json",
