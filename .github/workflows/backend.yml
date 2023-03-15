@@ -93,7 +93,7 @@ jobs:
         with:
           host: 68.183.25.209
           username: kc
-          password: P$uHorseStaple
+          key: ${{ secrets.PRIVATE_KEY }}
           script:
             cd /home/kc/workspace/site && git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git
 
