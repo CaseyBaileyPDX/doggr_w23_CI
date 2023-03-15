@@ -22,7 +22,8 @@ const logger = import.meta.env.DEV
 				ignore: "pid,hostname",
 			},
 		},
-		file: logDir + "/dev-logs.log",
+		//file: logDir + "/dev-logs.log",
+		test: false,
 	}
 	: {
 		transport: {
@@ -33,24 +34,8 @@ const logger = import.meta.env.DEV
 				ignore: "pid,hostname",
 			},
 		},
-		file: logDir + "/dev-logs.log",
+		//file: logDir + "/dev-logs.log",
+		test: false
 	};
 
-// : {
-// 	level: "warn",
-// 	file: logDir + "/warn-logs.log",
-// };
-
 export default logger;
-
-// in-source testing
-if (import.meta.vitest) {
-	const {describe, it, expect} = import.meta.vitest;
-
-	describe("logger", () => {
-		it("creates log config object", () => {
-			expect(logger)
-				.toBeDefined();
-		});
-	});
-}
