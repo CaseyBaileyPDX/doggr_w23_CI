@@ -3,8 +3,6 @@ import {afterAll, beforeAll, describe, expect, it} from "vitest";
 import {buildApp} from "../src/server";
 import SeedManager from "../src/lib/seed_manager";
 import SeederOptions from "../src/db/seeds/seeder_options";
-import {User} from "../src/db/models/user";
-import {IPHistory} from "../src/db/models/ip_history";
 
 // This is the app we'll use for testing, created at file-level scope
 let app;
