@@ -25,7 +25,8 @@ services:
     build: ./frontend/
     restart: always
     ports:
-      - "88:80" # We need to map here for convenience, so we don't conflict with a potential possible local server
+      - "80:80" # Non-SSL port (http://)
+      - "443:443" # SSL-enabled port (https://)
     environment:
       - VITE_BACKEND_IP=backend
       - VITE_BACKEND_PORT=8080
