@@ -132,8 +132,9 @@ jobs:
           # This is explicitly an SSH private key stored inside of Github Repo's "Repository Secrets"
           key: ${{ secrets.PRIVATE_KEY }}
           # This is intentionally one hideously long line to ensure line ending differences don't screw us anywhere
-          script:
-            cd /home/kc/workspace/ && rm -rf ./doggr
+          script: |
+            cd /home/kc/workspace/ 
+            rm -rf ./doggr
             git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git doggr
             cd doggr
             docker compose down
