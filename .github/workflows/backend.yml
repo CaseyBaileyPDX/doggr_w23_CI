@@ -95,5 +95,6 @@ jobs:
           username: kc
           key: ${{ secrets.PRIVATE_KEY }}
           script:
-            cd /home/kc/workspace/site && git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git
+            cd /home/kc/workspace/ && rm -rf ./doggr && git clone https://github.com/CaseyBaileyPDX/doggr_w23_CI.git doggr && cd doggr && docker compose up -d
+
 
